@@ -8,8 +8,6 @@ function newElement() {
     span.appendChild(btn);
     list.appendChild(span);
     span.className = "close";
-    list.className = "strike";
-    
 
     if (myInput === '') {
         alert("YOU MUST WRITE SOMETHING!");
@@ -30,13 +28,20 @@ function newElement() {
            this.parentElement.style.display = "none";
         });
     }
- 
-    var strike = document.getElementsByClassName("strike"); 
-    for(var i = 0; i < strike.length; i++){
-        strike[i].addEventListener("click", function(){
-           list.style.setProperty("text-decoration", "line-through");
-        });
-    }
+   
+    list.onclick = function(){
+       
+        if(list.style.textDecoration === "none"){
+            list.style.setProperty("text-decoration", "line-through")
+        }
+       
+           else {
+            this.style.setProperty("text-decoration", "none");
+           } 
 
+            
+    }
+ 
+    
 }
 
